@@ -126,7 +126,15 @@ uint8_t* iTerminal::numberToBuffer(double n, int base, int decimal) {
 			buffDisplay[((nextIndex - 1) * 4) + 3] |= 0x04;
 			continue;
 		}
-		memcpy(&buffDisplay[(nextIndex * 4) + 0], font8x4[((c >= '0' && c <= '9') ? c - '0' : c - 'a' + 10)], 4);
+		int asciiToIndex = 0;
+		if (c >= '0' && c <= '9') {
+			asciiToIndex = c - '0';
+		} else if (c >= 'a' && c <= 'f') {
+			asciiToIndex = c - 'a' + 10;
+		} else if (c == '-') {
+			asciiToIndex = 16; // -
+		}
+		memcpy(&buffDisplay[(nextIndex * 4) + 0], font8x4[asciiToIndex], 4);
 		nextIndex++;
 		if (nextIndex == 4) {
 			break;

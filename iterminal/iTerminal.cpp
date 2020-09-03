@@ -1,7 +1,7 @@
-#ifndef __IiLEDPlus_CPP__
-#define __IiLEDPlus_CPP__
+#ifndef __ITerminal_CPP__
+#define __ITerminal_CPP__
 
-#include "iLEDPlus.h"
+#include "iTerminal.h"
 #include "esp_log.h"
 
 uint8_t buffDisplay[16]; // 16x8
@@ -25,12 +25,12 @@ uint8_t font8x4[16 + 1][4] = {
     { 0x10, 0x10, 0x10, 0x00 }  // -
 };
 
-iLEDPlus::iLEDPlus()
+iTerminal::iTerminal()
 {
 	polling_ms = 40;
 }
 
-void iLEDPlus::init(void)
+void iTerminal::init(void)
 {
 	// Debug
 	esp_log_level_set("*", ESP_LOG_VERBOSE);
@@ -41,55 +41,55 @@ void iLEDPlus::init(void)
 	initialized = true;
 }
 
-int iLEDPlus::prop_count(void)
+int iTerminal::prop_count(void)
 {
 	// not supported
 	return 0;
 }
 
-bool iLEDPlus::prop_name(int index, char *name)
+bool iTerminal::prop_name(int index, char *name)
 {
 	// not supported
 	return false;
 }
 
-bool iLEDPlus::prop_unit(int index, char *unit)
+bool iTerminal::prop_unit(int index, char *unit)
 {
 	// not supported
 	return false;
 }
 
-bool iLEDPlus::prop_attr(int index, char *attr)
+bool iTerminal::prop_attr(int index, char *attr)
 {
 	// not supported
 	return false;
 }
 
-bool iLEDPlus::prop_read(int index, char *value)
+bool iTerminal::prop_read(int index, char *value)
 {
 	// not supported
 	return false;
 }
 
-bool iLEDPlus::prop_write(int index, char *value)
+bool iTerminal::prop_write(int index, char *value)
 {
 	// not supported
 	return false;
 }
 // --------------------------------------
 
-void iLEDPlus::process(Driver *drv)
+void iTerminal::process(Driver *drv)
 {
 
 }
 
-uint8_t* iLEDPlus::numberToBuffer(double n, int base, int decimal) {
+uint8_t* iTerminal::numberToBuffer(double n, int base, int decimal) {
 	memset(buffDisplay, 0, sizeof(buffDisplay));
 	char strBuff[20];
 	memset(strBuff, 0, 20);
 	if (base == 10) {
 		sprintf(strBuff, "%f", n);
-		ESP_LOGI("iLEDPlus", "%s", strBuff);
+		ESP_LOGI("iTerminal", "%s", strBuff);
 		while(1) {
 			int n = strlen(strBuff);
 			if (strBuff[n - 1] == '0') {
@@ -101,7 +101,7 @@ uint8_t* iLEDPlus::numberToBuffer(double n, int base, int decimal) {
 				break;
 			}
 		}
-		ESP_LOGI("iLEDPlus", "%s", strBuff);
+		ESP_LOGI("iTerminal", "%s", strBuff);
 	} else if (base == 16 || base == 2 || base == 8) {
 		itoa(n, strBuff, base);
 	}

@@ -1,5 +1,5 @@
-#ifndef __ILEDPLUS_H__
-#define __ILEDPLUS_H__
+#ifndef __ITerminal_H__
+#define __ITerminal_H__
 
 #include "driver.h"
 #include "device.h"
@@ -10,13 +10,13 @@
 #include <string.h>
 #include <inttypes.h>
 
-class iLEDPlus : public Device
+class iTerminal : public Device
 {
 private:
 
 public:
 	// constructor
-	iLEDPlus();
+	iTerminal();
 
 	// override
 	void init(void);

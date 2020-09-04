@@ -115,6 +115,14 @@ uint8_t* iTerminal::numberToBuffer(double n, int base, int decimal) {
 			break;
 		}
 	}
+
+	if (len > (hasDot ? 5 : 4)) {
+		// Substring
+		char newStrBuff[20];
+		strcpy(newStrBuff, strBuff);
+		memcpy(strBuff, &newStrBuff[len - (hasDot ? 5 : 4)], (hasDot ? 5 : 4));
+	}
+
 	if (len < (hasDot ? 5 : 4)) {
 		nextIndex = (hasDot ? 5 : 4) - len;
 	}

@@ -57,7 +57,7 @@ Blockly.Blocks['ledplus_show_time'] = {
   init: function() {
     this.jsonInit({
       "type": "ledplus_show_time",
-      "message0": "LED 16x8 show time %1 : %2 Colon %3",
+      "message0": Blockly.Msg.iLEDPlus_SHOW_TIME_MESSAGE,
       "args0": [
         {
           "type": "input_value",
@@ -74,11 +74,11 @@ Blockly.Blocks['ledplus_show_time'] = {
           "name": "colon",
           "options": [
             [
-              "Show",
+              Blockly.Msg.iLEDPlus_SHOW_TIME_SHOW_MESSAGE,
               "true"
             ],
             [
-              "Hide",
+              Blockly.Msg.iLEDPlus_SHOW_TIME_HIDE_MESSAGE,
               "false"
             ]
           ]
@@ -88,7 +88,7 @@ Blockly.Blocks['ledplus_show_time'] = {
       "previousStatement": null,
       "nextStatement": null,
       "colour": 165,
-      "tooltip": "",
+      "tooltip": Blockly.Msg.iLEDPlus_SHOW_TIME_TOOLTIP,
       "helpUrl": ""
     });
 	},

@@ -151,4 +151,56 @@ uint8_t* iTerminal::numberToBuffer(double n, int base, int decimal) {
 	return buffDisplay;
 }
 
+uint8_t* iTerminal::timeToBuffer(unsigned int n1, unsigned int n2, bool colon) {
+	n1 = n1 % 100;
+	n2 = n2 % 100;
+
+	char n1str[5], n2str[5];
+
+	memset(n1str, 0, 5);
+	memset(n2str, 0, 5);
+
+	itoa(n1, n1str, 10);
+	itoa(n2, n2str, 10);
+
+	if (n2 < 10) {
+		n2str[1] = n2str[0];
+		n2str[0] = '0';
+	}
+
+	memset(buffDisplay, 0, 16);
+
+	if (n1 >= 10) {
+		buffDisplay[0] = font8x4[n1str[0] - '0'][1];
+		buffDisplay[1] = font8x4[n1str[0] - '0'][2];
+		buffDisplay[2] = font8x4[n1str[0] - '0'][3];
+
+		buffDisplay[3] = 0;
+		buffDisplay[4] = font8x4[n1str[1] - '0'][1];
+		buffDisplay[5] = font8x4[n1str[1] - '0'][2];
+		buffDisplay[6] = font8x4[n1str[1] - '0'][3];
+	} else {
+		buffDisplay[4] = font8x4[n1str[0] - '0'][1];
+		buffDisplay[5] = font8x4[n1str[0] - '0'][2];
+		buffDisplay[6] = font8x4[n1str[0] - '0'][3];
+	}
+
+	// buffDisplay[6] = 0;
+	buffDisplay[7] = colon ? 0x28 : 0;
+	buffDisplay[8] = 0;
+
+	buffDisplay[9] = font8x4[n2str[0] - '0'][1];
+	buffDisplay[10] = font8x4[n2str[0] - '0'][2];
+	buffDisplay[11] = font8x4[n2str[0] - '0'][3];
+
+	buffDisplay[12] = 0;
+	buffDisplay[13] = font8x4[n2str[1] - '0'][1];
+	buffDisplay[14] = font8x4[n2str[1] - '0'][2];
+	buffDisplay[15] = font8x4[n2str[1] - '0'][3];
+
+	return buffDisplay;
+}
+
+
+
 #endif

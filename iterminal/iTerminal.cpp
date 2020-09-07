@@ -201,6 +201,48 @@ uint8_t* iTerminal::timeToBuffer(unsigned int n1, unsigned int n2, bool colon) {
 	return buffDisplay;
 }
 
+uint8_t* iTerminal::splitDisplayToBuffer(unsigned int n1, unsigned int n2) {
+	memset(buffDisplay, 0, 16);
+
+	if (n1 != 9999) {
+		n1 = n1 % 100;
+		if (n1 >= 10) {
+			buffDisplay[0] = font8x4[(n1 / 10) % 10][1];
+			buffDisplay[1] = font8x4[(n1 / 10) % 10][2];
+			buffDisplay[2] = font8x4[(n1 / 10) % 10][3];
+
+			buffDisplay[3] = 0;
+			buffDisplay[4] = font8x4[(n1) % 10][1];
+			buffDisplay[5] = font8x4[(n1) % 10][2];
+			buffDisplay[6] = font8x4[(n1) % 10][3];
+		} else {
+			buffDisplay[4] = font8x4[n1][1];
+			buffDisplay[5] = font8x4[n1][2];
+			buffDisplay[6] = font8x4[n1][3];
+		}
+	}
+
+	if (n2 != 9999) {
+		n2 = n2 % 100;
+		if (n2 >= 10) {
+			buffDisplay[9] = font8x4[(n2 / 10) % 10][1];
+			buffDisplay[10] = font8x4[(n2 / 10) % 10][2];
+			buffDisplay[11] = font8x4[(n2 / 10) % 10][3];
+
+			buffDisplay[12] = 0;
+			buffDisplay[13] = font8x4[(n2) % 10][1];
+			buffDisplay[14] = font8x4[(n2) % 10][2];
+			buffDisplay[15] = font8x4[(n2) % 10][3];
+		} else {
+			buffDisplay[13] = font8x4[n2][1];
+			buffDisplay[14] = font8x4[n2][2];
+			buffDisplay[15] = font8x4[n2][3];
+		}
+	}
+
+	return buffDisplay;
+}
+
 
 
 #endif

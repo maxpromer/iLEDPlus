@@ -6,3 +6,6 @@ Blockly.Msg.iLEDPlus_SHOW_TIME_TOOLTIP = "แสดงเวลาพร้อ�
 
 Blockly.Msg.iLEDPlus_SHOW_TIME_SHOW_MESSAGE = "แสดง";
 Blockly.Msg.iLEDPlus_SHOW_TIME_HIDE_MESSAGE = "ซ่อน";
+
+Blockly.Msg.iLEDPlus_SHOW_LR_MESSAGE = "LED 16x8 แสดงเลขทางซ้าย: %1 ขวา: %2";
+Blockly.Msg.iLEDPlus_SHOW_LR_TOOLTIP = "แสดงตัวเลขแยกอิสระ 2 ฝั่งบนแอลอีดี 16x8 ในครั้งเดียว";

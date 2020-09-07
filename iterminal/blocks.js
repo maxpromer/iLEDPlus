@@ -110,3 +110,36 @@ Blockly.Blocks['ledplus_show_time'] = {
 	}
 };
 
+Blockly.Blocks['ledplus_show_lr'] = {
+  init: function() {
+    this.jsonInit({
+      "type": "ledplus_show_lr",
+      "message0": Blockly.Msg.iLEDPlus_SHOW_LR_MESSAGE,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "n1",
+          "check": "Number"
+        },
+        {
+          "type": "input_value",
+          "name": "n2",
+          "check": "Number"
+        }
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 165,
+      "tooltip": Blockly.Msg.iLEDPlus_SHOW_LR_TOOLTIP,
+      "helpUrl": ""
+    });
+	},
+	xmlToolbox: function() {
+		return `
+		<block type="ledplus_show_lr">
+		</block>
+		`;
+	}
+};
+

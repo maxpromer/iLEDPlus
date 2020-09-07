@@ -12,3 +12,10 @@ Blockly.JavaScript['ledplus_show_time'] = function(block) {
   var code = `ht16k33.show(DEV_IO.iTerminal().timeToBuffer(${value_n1}, ${value_n2}, ${dropdown_colon}));\n`;
   return code;
 };
+
+Blockly.JavaScript['ledplus_show_lr'] = function(block) {
+  var value_n1 = Blockly.JavaScript.valueToCode(block, 'n1', Blockly.JavaScript.ORDER_ATOMIC) || '9999';
+  var value_n2 = Blockly.JavaScript.valueToCode(block, 'n2', Blockly.JavaScript.ORDER_ATOMIC) || '9999';
+  var code = `ht16k33.show(DEV_IO.iTerminal().splitDisplayToBuffer(${value_n1}, ${value_n2}));\n`;
+  return code;
+};

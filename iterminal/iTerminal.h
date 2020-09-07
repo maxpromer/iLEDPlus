@@ -31,6 +31,7 @@ public:
 	// method
 	uint8_t* numberToBuffer(double n, int base=10, int decimal=0) ;
 	uint8_t* timeToBuffer(unsigned int n1, unsigned int n2, bool colon = true) ;
+	uint8_t* splitDisplayToBuffer(unsigned int n1, unsigned int n2) ;
 
 };
 

@@ -6,3 +6,6 @@ Blockly.Msg.iLEDPlus_SHOW_TIME_TOOLTIP = "Show time with colon at LED 16x8";
 
 Blockly.Msg.iLEDPlus_SHOW_TIME_SHOW_MESSAGE = "Show";
 Blockly.Msg.iLEDPlus_SHOW_TIME_HIDE_MESSAGE = "Hide";
+
+Blockly.Msg.iLEDPlus_SHOW_LR_MESSAGE = "LED 16x8 show L: %1 R: %2";
+Blockly.Msg.iLEDPlus_SHOW_LR_TOOLTIP = "Show 2-digit split left right at LED 16x8";
